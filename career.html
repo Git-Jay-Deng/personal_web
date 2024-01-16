@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" >
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Career - Jian Deng</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <style>
+        body {
+            font-family: var(--font-1);
+            font-size: calc(1.5rem * var(--multiplier));;
+            font-weight: 400;
+            line-height: var(--vspace-1);
+            color: var(--color-text);
+        }
+        .timeline {
+            position: relative;
+            width: 80%;
+        }
+
+        .event {
+            position: relative;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .event:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .event:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        .event:nth-child(3) {
+            animation-delay: 1.1s;
+        }
+        .event:nth-child(4) {
+            animation-delay: 1.4s;
+        }
+
+        /* Add more nth-child rules for additional events */
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+
+
+        .event h5 {
+            margin: 0 0 10px;
+        }
+
+        .event p {
+            margin: 0;
+        }
+
+        .time {
+            position: absolute;
+            top: 50%;
+            right: -120px;
+            transform: translateY(-50%);
+            width: 100px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+
+<!-- preloader
+================================================== -->
+<div id="preloader">
+    <div id="loader" class="dots-fade">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+
+<!-- page wrap
+================================================== -->
+<div id="page" class="s-pagewrap">
+
+
+    <!-- # site header
+    ================================================== -->
+    <header id="masthead" class="s-header">
+
+        <div class="s-header__branding">
+            <p class="site-title">
+                <a href="index.html" rel="home">Jian Deng.</a>
+            </p>
+        </div>
+
+        <div class="row s-header__navigation">
+
+            <nav class="s-header__nav-wrap">
+
+                <h3 class="s-header__nav-heading">Navigate to</h3>
+
+                <ul class="s-header__nav">
+                    <li ><a href="index.html" title="">Home</a></li>
+                    <li >
+                        <a href="introduction.html" title="" class="">About Me</a>
+                    </li>
+                    <li class="has-children current-menu-item">
+                        <a title="" class="">Experience</a>
+                        <ul class="sub-menu">
+                            <li><a href="career.html">Career</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="blogList.html" title="" class="">Blog</a>
+                    </li>
+                </ul> <!-- end s-header__nav -->
+
+            </nav> <!-- end s-header__nav-wrap -->
+
+        </div> <!-- end s-header__navigation -->
+
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+    <div id="content" class="s-content s-content--blog">
+
+        <div class="row entry-wrap">
+            <div class="timeline">
+                <div class="event">
+                    <h5><dt><strong>Beijing Digital Union</strong></dt></h5>
+                    <div><strong>Website:</strong> https://www.shuzilm.cn/</div>
+                    <div><strong>Department: </strong>Big Data Department </div>
+                    <div><strong>Position:</strong> Java/Python Backend Developer</div>
+                    <div><strong>City:</strong> Beijing, China</div>
+                    <div class="time">Present <p>|</p> August 2018</div>
+                </div>
+                <div class="event">
+                    <h5><dt><strong>Business-intelligence of Oriental Nations Corporation</strong></dt></h5>
+                    <div><strong>Website:</strong> https://www.bonc.com.cn/</div>
+                    <div><strong>Department: </strong> Unicom Business Department </div>
+                    <div><strong>Position:</strong> Full Stack Developer</div>
+                    <div><strong>City:</strong> Beijing, China</div>
+                    <div class="time">August 2018 <p>|</p> June 2017</div>
+                </div>
+
+                <div class="event">
+                    <h5><dt><strong>Beijing Haihai Technology / Beijing Dingding Technology</strong></dt></h5>
+                    <div><strong>Department: </strong>  IT Department </div>
+                    <div><strong>Position:</strong> Java Backend Developer</div>
+                    <div><strong>City:</strong> Beijing, China</div>
+                    <div class="time">June 2017 <p>|</p> June 2016</div>
+                </div>
+
+                <div class="event">
+                    <h5><dt><strong>Shanghai Sinitek Computer Technology</strong></dt></h5>
+                    <div><strong>Website:</strong> https://www.sinitek.com/</div>
+                    <div><strong>Department: </strong>  IT Department </div>
+                    <div><strong>Position:</strong> Java Backend Developer</div>
+                    <div><strong>City:</strong> Beijing, China</div>
+                    <div class="time">June 2016 <p>|</p> April 2015</div>
+                </div>
+                <figcaption>
+                    <h5>
+                        <a href="projects.html">Read More about Projects</a>|
+                        <a href="skills.html">Read More about Skills</a>
+                    </h5>
+                </figcaption>
+                <!-- Add more events as needed -->
+            </div>
+        </div>
+
+    </div> <!-- end s-content -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</div>
+</body>
+</html>

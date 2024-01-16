@@ -80,39 +80,30 @@
             <div class="row s-header__navigation">
 
                 <nav class="s-header__nav-wrap">
-    
+
                     <h3 class="s-header__nav-heading">Navigate to</h3>
-    
+
                     <ul class="s-header__nav">
-                        <li><a href="index.html" title="">Home</a></li>
-                        <li class="has-children">
-                            <a href="#0" title="" class="">Categories</a>
+                        <li ><a href="index.html" title="">Home</a></li>
+                        <li >
+                            <a href="introduction.html" title="" class="">About Me</a>
+                        </li>
+                        <li class="has-children current-menu-item">
+                            <a title="" class="">Experience</a>
                             <ul class="sub-menu">
-                                <li><a href="category.html">Design</a></li>
-                                <li><a href="category.html">Lifestyle</a></li>
-                                <li><a href="category.html">Inspiration</a></li>
-                                <li><a href="category.html">Work</a></li>
-                                <li><a href="category.html">Health</a></li>
-                                <li><a href="category.html">Photography</a></li>
+                                <li><a href="career.html">Career</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="skills.html">Skills</a></li>
                             </ul>
                         </li>
-                        <li class="current-menu-item has-children">
-                            <a href="#0" title="" class="">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="single-standard.html">Standard Post</a></li>
-                                <li><a href="single-video.html">Video Post</a></li>
-                                <li><a href="single-audio.html">Audio Post</a></li>
-                            </ul>
+                        <li >
+                            <a href="blogList.html" title="" class="">Blog</a>
                         </li>
-                        <li><a href="styles.html" title="">Styles</a></li>
-                        <li><a href="about.html" title="">About</a></li>
-                        <li><a href="contact.html" title="">Contact</a></li>
                     </ul> <!-- end s-header__nav -->
 
                 </nav> <!-- end s-header__nav-wrap -->
-    
-            </div> <!-- end s-header__navigation -->
 
+            </div> <!-- end s-header__navigation -->
 
             <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
 
@@ -222,15 +213,56 @@
                             </a>
                             <div id="p3" class="content-primary">
                                 <!--<h3>Demand Side Platform(DSP), Real Time Bidding(RTB) Interface</h3>-->
-                                <h5>a) Discription</h5>
+                                <dt><strong>a) Discription </strong></dt>
                                 <p></p>
                                 <div class="entry__media">
+                                    <figure class="featured-image">
+                                        <img src="images/thumbs/blog/groupCotrol.jpeg"
+                                             sizes="(max-width: 2400px) 100vw, 2400px" alt="">
+                                    </figure>
+                                    <p></p>
                                     <dl class="dictionary-style">
-                                        <dt><strong>Devices identification</strong></dt>
-                                        <p>The demand-side platform for advertising aims to provide advertisers with a user-friendly, all-in-one advertising solution across various media channels, platforms, and devices. By integrating and analyzing data, it enables precise targeting based on audience preferences while offering real-time monitoring and continuous optimization. This comprehensive platform is aptly named "demand-side" as it caters to the unified advertising needs of advertisers. With its ability to connect multiple media resources, DSP facilitates integrated marketing and precision targeting through audience data analysis.
+                                        <dt><strong>Backgroud</strong></dt>
+                                        <p>
+                                            Equipment such as mobile phones and computers plays a crucial role in the Internet risk control system. IP addresses and mobile phone numbers are valuable resources for operators, enabling them to gather essential risk attributes and data. On the other hand, users have direct control over their devices, allowing us to access various device information for effective risk control. The dimension of device data is extensive, and by implementing appropriate device idendify rules, we can greatly enhance protection measures. In order to counteract the risk control technology employed by equipment manufacturers, the illegal industry is continuously exploring innovative technologies, with machine-modification tools being particularly noteworthy.
                                         </p>
-                                        <dt><strong>Real Time Bidding(RTB)</strong></dt>
-                                        <p>After specifying your target audience and budget for advertising, there will be a competitive bidding process among other advertisers who are also trying to reach the same audience. During the time between when a potential customer lands on the page and when it fully loads, an algorithm will determine which ad to display based on factors such as browsing history, time of day, and IP address. Once all the binding data is collected, the highest bidder will secure the position.</p>
+                                        <p>
+                                            The marketing activities of Internet business platforms typically involve the following customer terms that are commonly seen.
+                                        </p>
+                                        <p>
+                                            <ul>
+                                                <li>Only one participation is allowed per registered account.</li>
+                                                <li>Participation is restricted to a single occurrence per mobile phone number.</li>
+                                                <li>Each device can participate only once.</li>
+                                            </ul>
+                                        </p>
+                                        <p>
+                                            Certainly, these terms cannot solely depend on the customer's conscious compliance; they should be enforced through background limit policies. the illegal industry employs a limited number of authentic devices to generate an extensive array of counterfeit ones. How to identify the two participants are the same device is challenging.
+                                        </p>
+                                        <dt><strong>Goals</strong></dt>
+                                        <p>
+                                            The criminal group usually use the same device multiple times with modified data to pretend new devices, but not all of fields can be modified due to cost constraints. Therefore, by analyzing the reported data from each device, we can know what kind of report data are from the same device. We can use neural network to learn the pattern in our existing data, having the ability to identify devices, thereby preventing criminal groups from modifying device data for illegal purposes.
+                                        </p>
+                                        <dt><strong>Implementation</strong></dt>
+                                        <p>
+                                            <ol>
+                                                <li>Extract device report data.
+
+                                                <li>Aggregate the exact reported data from the same device in order to supplement the null value of the field.</li>
+
+                                                <li>Use regex to filter data that doesn't conform to the field specification.</li>
+
+                                                <li>Forming data group pair: the data reported by the same device in different months are formed into the same data pair. The data reported by different devices in different months are composed of different data pairs.</li>
+
+                                                <li>Transformation: Compare the data pairs field by field. For the ID type, the same field value is marked as 1, and the different field value is marked as 2. For numeric data, calculate the difference.</li>
+
+                                                <li>The generated data is used as training data and test data.</li>
+
+                                                <li>Train the model using Deep neural networks (DNN)</li>
+
+                                            </ol>
+
+                                        </p>
                                     </dl>
                                 </div>
                             </div> <!-- end content-primary -->
@@ -240,17 +272,52 @@
                             </a>
                             <div id="p4" class="content-primary">
                                 <!--<h3>Demand Side Platform(DSP), Real Time Bidding(RTB) Interface</h3>-->
-                                <h5>a) Discription</h5>
+                                <dt><strong>a) Discription</strong></dt>
                                 <p></p>
                                 <div class="entry__media">
                                     <dl class="dictionary-style">
-                                        <dt><strong>Devices identification</strong></dt>
-                                        <p>The demand-side platform for advertising aims to provide advertisers with a user-friendly, all-in-one advertising solution across various media channels, platforms, and devices. By integrating and analyzing data, it enables precise targeting based on audience preferences while offering real-time monitoring and continuous optimization. This comprehensive platform is aptly named "demand-side" as it caters to the unified advertising needs of advertisers. With its ability to connect multiple media resources, DSP facilitates integrated marketing and precision targeting through audience data analysis.
+                                        <p>
+                                            CRM (customer relationship management) is the combination of practices,
+                                            strategies and technologies that companies use to manage and analyze customer
+                                            interactions and data throughout the customer lifecycle. The goal is to improve
+                                            customer service relationships and assist with customer retention and drive sales
+                                            growth. I have participated in multiple projects of the CRM system,
+                                            including the Communication Products Marketing Platform and the Restaurant Marketing platform.
                                         </p>
-                                        <dt><strong>Real Time Bidding(RTB)</strong></dt>
-                                        <p>After specifying your target audience and budget for advertising, there will be a competitive bidding process among other advertisers who are also trying to reach the same audience. During the time between when a potential customer lands on the page and when it fully loads, an algorithm will determine which ad to display based on factors such as browsing history, time of day, and IP address. Once all the binding data is collected, the highest bidder will secure the position.</p>
                                     </dl>
                                 </div>
+                                <dt><strong>b) Projects</strong></dt>
+                                <p></p>
+                                <ol>
+                                    <li>
+                                        <strong>Communication Products Marketing Platform</strong>
+                                        <figure class="featured-image">
+                                            <img src="images/thumbs/blog/middel_platform.png"
+                                                 sizes="(max-width: 2400px) 100px, 200px" alt="">
+                                        </figure>
+                                        <p>
+                                            This is a service that offers communication products for sale, catering to sales personnel and providing marketing programs to try out. It also includes functions such as data statistics, commodity management, order management, and commission settlement. The platform follows a three-tier architecture consisting of the front-end platform, middle platform, and backend platform.
+                                        </p>
+                                        <p>
+                                            The front-end platform serves as the application layer that directly interacts with end users. Taking e-commerce platforms as an example, the app, H5 end, pc end, and mini program we use daily all belong to the front-end system of e-commerce.
+                                        </p>
+                                        <p>
+                                            The backend platform remains unseen by the end user. Its value lies in storing and processing the essential data of the enterprise. For instance, supply chain management systems store product and inventory information, while customer management systems hold user details.
+                                        </p>
+                                        <p>
+                                            The arise of middle platform: To meet both the fast-paced needs of the front office and the stability requirements of the backend, a product architecture is formed with three layers: "front-end (application layer) - middle (logic layer) - backend (data layer)". This architecture enables quick responsiveness from the middle platform when demands arise on the current platform, thereby enhancing research and development efficiency and reducing innovation costs.
+                                        </p>
+                                        <p>
+                                            I played a key role in developing the middle platform, which involved utilizing Spring Boot to create microservices. These microservices were categorized into user center, commodity center, order center, and marketing center within the platform. Through the integration of Spring Cloud components, all these microservices were effectively organized together to form a comprehensive set of front-end and back-end functionalities. This enabled us to promptly adapt to changing demands and enhance the traditional "software platform". By introducing new rules for specialized function allocation and data modeling at an enterprise level, we successfully addressed issues such as redundant work within our team (reinventing the wheel) as well as function boundary division between software platforms and data isolation.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <strong>Restaurant Marketing platform</strong>
+                                        <p>
+                                            A mobile marketing platform has been developed for the restaurant, utilizing WeChat (the largest communication social software in China), to effectively manage restaurant members. This includes user-friendly features like food ordering, recharging, coupons, games, activities to engage users who have been inactive and attract new ones. In this project, my main responsibilities involved integrating with the WeChat interface and implementing user authorization along with terminal message push functionality. Additionally, I created a distributed file storage service based on FastDFS to provide essential storage support for the company's technical team.
+                                        </p>
+                                    </li>
+                                </ol>
                             </div> <!-- end content-primary -->
 
                             <a class="btn btn--stroke u-fullwidth" onclick="toggleDetails('p0')">
@@ -258,7 +325,7 @@
                             </a>
                             <div id="p0" class="content-primary">
                                 <!--<h3>Demand Side Platform(DSP), Real Time Bidding(RTB) Interface</h3>-->
-                                <h5>a) Discription</h5>
+                                <dt><strong>a) Discription</strong></dt>
                                 <p></p>
                                 <div class="entry__media">
                                 <cite>
@@ -273,7 +340,7 @@
                                         </p>
                                     </dl>
 
-                                    <h5>b) Duty</h5>
+                                    <dt><strong>b) Duty</strong></dt>
                                     <dl class="dictionary-style">
                                         <ul>
                                             <li>Developed a web application that calculates the probability of experiencing a stroke based on user-input physical
@@ -283,14 +350,18 @@
                                     </dl>
                                 </div>
                             </div> <!-- end content-primary -->
+                            </div>
+                            <figcaption>
+                                <h5>
+                                    <a href="career.html">Read More about Career</a>|
+                                    <a href="skills.html">Read More about Skills</a>
+                                </h5>
+                            </figcaption>
                         </article> <!-- end entry -->
-
                     </div>
                 </div> <!-- end entry-wrap -->
         </div> <!-- end s-content -->
 
-    <!-- Java Script
-    ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
