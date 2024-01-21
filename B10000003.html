@@ -6,7 +6,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Standard Post - Spurgeon</title>
+    <title>Principles of High-Availability Business Design - Jian Deng</title>
 
     <script>
         document.documentElement.classList.remove('no-js');
@@ -98,7 +98,7 @@
                     <header class="entry__header">
 
                         <h1 class="entry__title">
-                            High Concurrency Principles.
+                            Principles of High-Availability Business Design.
                         </h1>
 
                         <div class="entry__meta">
@@ -114,7 +114,7 @@
                                     <circle cx="12" cy="12" r="7.25" stroke="currentColor" stroke-width="1.5"></circle>
                                     <path stroke="currentColor" stroke-width="1.5" d="M12 8V12L14 14"></path>
                                 </svg>
-                                Dec 20, 2023
+                                Sep 27, 2023
                             </div>
                         </div>
                     </header>
@@ -127,9 +127,62 @@
                             <head>
                                 <meta charset="UTF-8">
                                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                <title>High Concurrency Principles</title>
+                                <title>Principles of High-Availability Business Design</title>
                             </head>
                             <body>
+                                <h1>1. High Availability Principles</h1>
+
+                                <h2>1.1 Degradation</h2>
+                                <p>For a highly available service, an essential design is the degradation switch. When designing a degradation switch, the following ideas are crucial:</p>
+                                <ul>
+                                    <li>Centralized switch management: Push the switch to various applications through a push mechanism.</li>
+                                    <li>Multi-level degradable read services: Degrade service calls to read from local cache, distributed cache, or default degraded data.</li>
+                                    <li>Pre-positioning of switches: For example, in an architecture like Nginx → Tomcat, pre-position the switch at the Nginx access layer, handling the switch at the Nginx layer, and not sending traffic to the backend Tomcat applications or sending only a small portion of the traffic.</li>
+                                    <li>Business degradation: Prioritize processing high-priority data or data with special features, convert synchronous calls to asynchronous calls, and allocate traffic entering the system reasonably to ensure availability during high-concurrency traffic, such as in e-commerce systems during major promotions.</li>
+                                </ul>
+
+                                <h2>1.2 Rate Limiting</h2>
+                                <p>The purpose of rate limiting is to prevent malicious request traffic, attacks, or traffic exceeding the system peak. Consider the following ideas:</p>
+                                <ol>
+                                    <li>Malicious request traffic accessing only the cache.</li>
+                                    <li>For traffic penetrating to the backend application, consider using Nginx's limit module for handling.</li>
+                                    <li>Block malicious IPs using Nginx deny.</li>
+                                </ol>
+
+                                <h2>1.3 Traffic Switching</h2>
+                                <p>For a large-scale application, traffic switching is crucial in scenarios like a data center crash. Methods for switching include:</p>
+                                <ol>
+                                    <li>DNS: Switching data center entry points.</li>
+                                    <li>HttpDNS: Mainly in mobile app scenarios, allocate traffic entry points on the client side, bypassing the operator's LocalDNS for more precise traffic scheduling.</li>
+                                    <li>LVS/HaProxy: Switching the failed Nginx access layer.</li>
+                                    <li>Nginx: Switching the failed application layer.</li>
+                                </ol>
+
+                                <h2>1.4 Rollback</h2>
+                                <p>Versioning aims to achieve auditability, and rollback is an essential aspect. When errors occur in programs or data, having a versioning mechanism allows reverting to the most recent correct version through rollback, such as transaction rollback, code repository rollback, deployment version rollback, data version rollback, and static resource version rollback.</p>
+
+                                <h1>2. Business Design Principles</h1>
+
+                                <h2>2.1 Anti-Duplication Design</h2>
+                                <p>Considerations for preventing duplicates, such as preventing duplicate submissions on the settlement page or preventing duplicate inventory deductions during order placement. Solutions may involve anti-duplication keys and anti-duplication tables. In scenarios like duplicate payments, record each payment case to enable refund processing.</p>
+
+                                <h2>2.2 Idempotent Design</h2>
+                                <p>In transaction systems, especially when dealing with messages, where existing message middleware doesn't guarantee no duplicate message consumption, business systems need to implement idempotent processing for duplicate message consumption. This also applies to handling asynchronous callbacks from third-party payments.</p>
+
+                                <h2>2.3 State and State Machine</h2>
+                                <p>When designing transaction order systems, consider both forward states (pending payment, pending shipment, shipped, completed) and reverse states (canceled, refunded). The decision to separate storage for forward and reverse states should be based on system characteristics. State design should include state track for user to track current order status and relevant logs for traceability. Considerations for state transitions in orders, such as transitions from pending payment to paid and from paid to shipped, should also be made. Using a state machine can better control state transitions, especially when dealing with many states. Address issues like concurrent state modifications, ensuring only one modification per order at a time, and handling the order of state change messages, such as the time gap between payment success messages and user cancellation messages.</p>
+
+                                <h2>2.4 Backend System Feedback</h2>
+                                <p>Many systems require feedback, such as previewing final results after modifying certain content or obtaining feedback on rules in rule systems. Therefore, when designing backend systems, consider making effects previewable and providing feedback.</p>
+
+                                <h2>2.5 Backend System Approval</h2>
+                                <p>Important backend functions may require an approval process, such as adjusting prices. Record operations in logs to ensure traceability and auditability.</p>
+
+                                <h2>2.6 Documentation and Comments</h2>
+                                <p>Some systems lack documentation and code comments, causing difficulties for later developers and making certain code sections untouchable due to lack of understanding. Therefore, from the beginning of system development, establish a documentation library (architecture design, design principles, data dictionary/business processes, existing issues). Business code and special requirements should have comments for clarity and future maintenance.</p>
+
+                                <h2>2.7 Backup</h2>
+                                <p>Backup involves both code and personnel. Code should be regularly committed to version control repositories with multiple versions. Personnel backup ensures that at least two developers understand the system well, reducing the risk of chaos when one developer leaves. In cases of "core personnel" writing core code for a system, consider having them mentor another developer to ensure knowledge transfer and overcome challenges if the core personnel leave.</p>
 
 
                             </body>
