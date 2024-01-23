@@ -185,8 +185,8 @@
                                             utilized Kafka, which is a distributed message system based on an immutable log,
                                             for storing data streams. The Batch Layer employed HDFS of Hadoop and ODPS of
                                             Alibaba Cloud for storing datasets. The Batch View process, for precomputation tasks,
-                                            used MapReduce and Spark and MySQL for querying recent result data, while
-                                            Alibaba Cloud's ADB and HBase are employed for querying historical result data.
+                                            used MapReduce, Spark, and MySQL for querying recent data, while
+                                            Alibaba Cloud's ADB and HBase are employed for querying historical data.
                                             The Speed Layer employs Flink and Spark Streaming for incremental data processing.
                                             To ensure real-time efficiency, we utilized Redis as the cache for real-time calculation.
                                             Based on the optimized big data architecture, we developed services such as
